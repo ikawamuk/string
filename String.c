@@ -6,6 +6,8 @@
 
 _Static_assert(sizeof(String) == sizeof(String_impl_),
                "String buffer is not equal to String_impl_");
+_Static_assert(_Alignof(String) >= _Alignof(String_impl_),
+               "String buffer is not aligned enough for String_impl_");
 
 static size_t   grow_capacity_(size_t length)
 {
